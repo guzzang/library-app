@@ -42,7 +42,7 @@ public class BookService {
         // 3. 확인했는데 대출중이면 에러 발생시킴
 
         if (userLoanHistoryRepository.existsByBookNameAndIsReturn(book.getName(), false)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("진작 대출되어 있는 책입니다");
         }
 
         // 4. 유저 정보를 가져온다. (1번 책 정보를 가져오는 방식과 동일)
@@ -57,7 +57,6 @@ public class BookService {
 
         User user = userRepository.findByName(request.getUserName())
                 .orElseThrow(IllegalArgumentException::new);
-
         user.returnBook(request.getBookName());
     }
 

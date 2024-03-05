@@ -12,9 +12,9 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private final UserServiceV2 userService;
+    private final UserServiceV1 userService;
 
-    public UserController(UserServiceV2 userService){
+    public UserController(UserServiceV1 userService){
         this.userService = userService;
     }
 

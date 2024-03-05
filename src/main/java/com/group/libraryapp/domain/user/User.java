@@ -49,9 +49,10 @@ public class User {
         this.name = name;
     }
 
-    public void loanBook(String bookName){
+    public void loanBook(String bookName) {
         this.userLoanHistories.add(new UserLoanHistory(this, bookName));
     }
+
 
     public void returnBook(String bookName){
         UserLoanHistory targetHistory = this.userLoanHistories.stream()

@@ -39,12 +39,14 @@ public class BookService2 {
         User user = userRepository.findByName(request.getUserName())
                 .orElseThrow(IllegalArgumentException::new);
 
+        Book book = bookRepository.findByName(request.getBookName())
+                .orElseThrow(IllegalArgumentException::new);
 
         if(userLoanHistoryRepository.existsByBookNameAndIsReturn(request.getBookName(), false)){
             throw new IllegalArgumentException();
         }
 
-        userLoanHistoryRepository.save(new UserLoanHistory(user, request.getBookName()));
+        userLoanHistoryRepository.save(new UserLoanHistory(user, book.getName()));
 
     }
 
