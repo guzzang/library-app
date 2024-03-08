@@ -1,6 +1,6 @@
 package com.group.libraryapp.domain.fruit;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
