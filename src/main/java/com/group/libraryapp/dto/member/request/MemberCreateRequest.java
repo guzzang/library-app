@@ -1,5 +1,6 @@
 package com.group.libraryapp.dto.member.request;
 
+import com.group.libraryapp.domain.member.Role;
 import jakarta.persistence.Column;
 import lombok.Getter;
 
@@ -12,7 +13,7 @@ public class MemberCreateRequest {
 
     private String teamName;
 
-    private String role;
+    private Role role;
 
     private LocalDate birthday;
 

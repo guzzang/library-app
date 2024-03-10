@@ -1,6 +1,7 @@
 package com.group.libraryapp.domain.team;
 
 import com.group.libraryapp.domain.member.Member;
+import com.group.libraryapp.domain.member.Role;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -47,12 +48,12 @@ public class Team {
 
         if(this.manager == null) return;
 
-        Member newManager = this.members.stream()
-                .filter(member -> member.getRole().equals("MANAGER"))
+        Member oldManager = this.members.stream()
+                .filter(member -> member.getRole().equals(Role.MANAGER))
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);
 
-        newManager.changeRole("MEMBER");
+        oldManager.changeRole(Role.MEMBER);
 
     }
     public void addMemberCount() {

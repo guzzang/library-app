@@ -1,5 +1,6 @@
 package com.group.libraryapp.dto.member.response;
 
+import com.group.libraryapp.domain.member.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,7 +14,7 @@ public class MemberResponse {
 
     private String teamName;
 
-    private String role;
+    private Role role;
 
     private LocalDate birthday;
 

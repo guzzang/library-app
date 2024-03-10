@@ -21,7 +21,8 @@ public class Member {
     private String memberName;
 
     @Column(nullable = false)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @Column(nullable = false)
     private LocalDate birthday;
@@ -33,7 +34,7 @@ public class Member {
     @JoinColumn(name = "team_id")
     private Team team;
 
-    public Member(String memberName, String role, LocalDate birthday, LocalDate workStartDate, Team team) {
+    public Member(String memberName, Role role, LocalDate birthday, LocalDate workStartDate, Team team) {
         this.memberName = memberName;
         this.role = role;
         this.birthday = birthday;
@@ -41,7 +42,7 @@ public class Member {
         this.team = team;
     }
 
-    public void changeRole(String role) {
+    public void changeRole(Role role) {
         this.role = role;
     }
 }

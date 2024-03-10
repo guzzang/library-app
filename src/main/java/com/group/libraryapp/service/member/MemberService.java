@@ -2,6 +2,7 @@ package com.group.libraryapp.service.member;
 
 import com.group.libraryapp.domain.member.Member;
 import com.group.libraryapp.domain.member.MemberRepository;
+import com.group.libraryapp.domain.member.Role;
 import com.group.libraryapp.domain.team.Team;
 import com.group.libraryapp.domain.team.TeamRepository;
 import com.group.libraryapp.dto.member.request.MemberCreateRequest;
@@ -33,7 +34,7 @@ public class MemberService {
                         request.getWorkStartDate(),
                         team));
 
-        if(request.getRole().equals("MANAGER")){
+        if(request.getRole().equals(Role.MANAGER)){
             team.setManager(request.getMemberName());
         }
 
